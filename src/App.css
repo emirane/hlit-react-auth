@@ -1,0 +1,163 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(8px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.table {
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+table thead tr {
+  font-weight: bold;
+  background: #2e82c3;
+}
+
+.input-group {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.pagination {
+  margin: 0 auto;
+}
+
+.detailview-row {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(207, 235, 249, 0.7);
+    
+    /*justify-content: center;*/
+    z-index: 5;
+    align-items: center;
+}
+
+
+
+.container-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 92%;
+    min-height: 500px;
+    background: white;
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+}
+
+.detailview-row div {
+    border: none;
+}
+.detailview-row table {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  padding: 45px;
+  text-align: center;
+  max-width: 95%;
+  min-height: 300px;
+}
+.container-detail table{
+  background: rgba(207, 235, 249, 0.2);
+}
+
+.detailview-row table td:nth-of-type(1),
+.detailview-row table th:nth-of-type(1)  {
+	width: 40px;
+}
+.detailview-row table td:nth-of-type(2),
+.detailview-row table th:nth-of-type(2) {
+	width: 100px;
+}
+.detailview-row table td:nth-of-type(3),
+.detailview-row table th:nth-of-type(3) {
+	width: 100px;
+}
+.detailview-row table td:nth-of-type(4),
+.detailview-row table th:nth-of-type(4) {
+	width: 150px;
+}
+.detailview-row table td:nth-of-type(5),
+.detailview-row table th:nth-of-type(5) {
+	width: 120px;
+}
+.detailview-row table td:nth-of-type(6),
+.detailview-row table th:nth-of-type(6) {
+	width: 150px;
+}
+
+
+.button-block {
+  display: flex;
+  flex-direction: row;
+  
+}
+.button-block .btn {
+  width: 100px;
+  margin: 10px;
+}
+
+.close {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #dc3545;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 1;
+}
+.close:hover{
+  color: #e01040;
+}
+
+.table.detail {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+}
+
+.close > span{
+    width: 50px;
+    height: 50px;
+}
+
+.row {
+  display: block;
+}
+.col-lg-4 {
+  margin: 0 auto;
+} 
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
