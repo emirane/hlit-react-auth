@@ -5,7 +5,6 @@ import DetailRowView2 from './components/DetailRowView/DetailRowView2';
 import Loader from './components/Loader/Loader';
 import AuthService from './components/AuthService/AuthService';
 import './App.css';
-import Button from 'react-bootstrap/Button';
 
 
 const Auth = new AuthService();
@@ -14,12 +13,18 @@ class App2 extends Component {
     constructor() {
         super()
         this.domain = `http://home-hlit.jinr.ru:8443/api/mysql`;
+        this.Auth = new AuthService();
     }
     state = {
         data:[],
         isClose: true,
         isLoading: true,
         updateStatus: true,
+    }
+
+    componentWillMount(){
+        if(!this.Auth.loggedIn())
+            this.props.history.replace('/login');
     }
 
     async componentDidMount() {
@@ -31,7 +36,7 @@ class App2 extends Component {
           }
         })
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
         this.setState({
           isLoading: false,
           data: data
@@ -66,6 +71,25 @@ class App2 extends Component {
              if(res.affectedRows===1) {
                  this.setState({
                     updateStatus: !this.state.updateStatus
+                 })
+                //window.location.reload(); 
+             } // Проверить статус ответа и вывести сообщение а-ля "Успешно"
+         })
+    }
+
+    deleteRow = (row) => {
+        const id = row.id
+        const token = localStorage.getItem('id_token');
+        return this.fetch(`${this.domain}/delUser`, token, {
+         method: 'POST',
+         body: JSON.stringify({
+             id,
+         })
+         }).then(res => {    
+             console.log(res)      
+             if(res.affectedRows===1) {
+                 this.setState({
+                    data: this.state.data
                  })
                 //window.location.reload(); 
              } // Проверить статус ответа и вывести сообщение а-ля "Успешно"
@@ -129,6 +153,15 @@ class App2 extends Component {
            </button>
            </label>        
    }
+   buttonDeleteRow(cell, row) { 
+    return <label>
+       <button type="button" 
+           onClick={() => {this.deleteRow(row)}} 
+           className="bbtn btn-primary btn-sm">
+               (-)
+       </button>
+       </label>        
+}
 
     isOkFunction(cell, row) {   
         return <label>
@@ -160,6 +193,7 @@ class App2 extends Component {
                     ?<Loader/>
                     :<React.Fragment>
                     <BootstrapTable data={this.state.data} striped hover  options={ options } search pagination bordered={ false } >
+                        <TableHeaderColumn dataField="button" dataFormat={this.buttonDeleteRow.bind(this)}></TableHeaderColumn>
                         <TableHeaderColumn dataField="button" dataFormat={this.buttonExpandRow.bind(this)}></TableHeaderColumn>
                         <TableHeaderColumn isKey dataField='name' dataSort={ true }>Name</TableHeaderColumn>
                         <TableHeaderColumn dataField='login' dataSort={ true }>Login</TableHeaderColumn>

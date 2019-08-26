@@ -79,12 +79,12 @@ class Registartion extends Component {
                     <div className="boxer">
                         <div className="box-row">
                             <div className="box1"><span id="zvezda">*</span>Ф.И.О.</div>
-                            <div className="box2"><input name="name" size="45" type="text" onChange={this.onChangeHandler}/></div>
+                            <div className="box2"><input name="name" required size="45" type="text" onChange={this.onChangeHandler}/></div>
                         </div>
 
                         <div className="box-row">
                             <div className="box1"><span id="zvezda">*</span>Ф.И.О. латиницей</div>
-                            <div className="box2"><input name="name_lat" size="45" type="text" onChange={this.onChangeHandler}/></div>
+                            <div className="box2"><input name="name_lat" required size="45" type="text" onChange={this.onChangeHandler}/></div>
                         </div>
 
                         <div className="box-row">
@@ -103,17 +103,17 @@ class Registartion extends Component {
 
                         <div className="box-row">
                             <div className="box1"><span id="zvezda">*</span>Страна</div>
-                            <div className="box2"><input name="country" size="45" type="text" onChange={this.onChangeHandler}/></div>
+                            <div className="box2"><input name="country" required size="45" type="text" onChange={this.onChangeHandler}/></div>
                         </div>
 
                         <div className="box-row">
                             <div className="box1"><span id="zvezda">*</span>Электронная почта</div>
-                            <div className="box2"><input name="email" size="45" type="text" onChange={this.onChangeHandler}/></div>
+                            <div className="box2"><input name="email" required size="45" type="text" onChange={this.onChangeHandler}/></div>
                         </div>
 
                         <div className="box-row">
                             <div className="box1"><span id="zvezda">*</span>Номер телефона</div>
-                            <div className="box2"><input name="tel" size="45" type="text" onChange={this.onChangeHandler}/></div>
+                            <div className="box2"><input name="tel" required size="45" type="text" onChange={this.onChangeHandler}/></div>
                         </div>
 
                         <div className="box-row">
@@ -128,29 +128,29 @@ class Registartion extends Component {
                                 ))}
                             </select>
                             <br/>
-                            <span >Вы можете найти полные названия тем, перейдя по этой <a href="http://www.jinr.ru/wp-content/uploads/JINR_Docs/JINR_Topical_Plan_2018_(rus).pdf" target="_blank" rel="noopener">ссылке</a></span>
+                            <span >Вы можете найти полные названия тем, перейдя по этой <a href="http://www.jinr.ru/wp-content/uploads/JINR_Docs/JINR_Topical_Plan_2018_(rus).pdf" target="_blank" >ссылке</a></span>
                         </p>
                         </div>
                         </div>
 
                         <div className="box-row">
                             <div className="box1"><span id="zvezda">*</span>Проект из темы</div>
-                            <div className="box2"><input name="tema_project" size="45" type="text" onChange={this.onChangeHandler}/></div>
+                            <div className="box2"><input name="tema_project" required size="45" type="text" onChange={this.onChangeHandler}/></div>
                         </div>
 
                         <div className="box-row">
                             <div className="box1"><span id="zvezda">*</span>Логин (латиницей)</div>
-                            <div className="box2"><input name="login" size="45" type="text" onChange={this.onChangeHandler}/></div>
+                            <div className="box2"><input name="login" required size="45" type="text" onChange={this.onChangeHandler}/></div>
                         </div>
 
                         <div className="box-row">
                             <div className="box1"><span id="zvezda">*</span>Название научной работы</div>
-                            <div className="box2"><textarea cols="45" name="name_of_work" rows="2" onChange={this.onChangeHandler}></textarea></div>
+                            <div className="box2"><textarea cols="45" required="required"  name="name_of_work" rows="2" onChange={this.onChangeHandler}></textarea></div>
                         </div>
 
                         <div className="box-row">
                             <div className="box1"><span id="zvezda">*</span>Краткое описание научной работы</div>
-                            <div className="box2"><textarea cols="45" name="about_work" rows="10" onChange={this.onChangeHandler}></textarea></div>
+                            <div className="box2"><textarea cols="45" required="required" name="about_work" rows="10" onChange={this.onChangeHandler}></textarea></div>
                         </div>
                         <p>
                             <input type="submit" value="Отправить" className="reg-button"></input>
@@ -170,7 +170,7 @@ class Registartion extends Component {
                         <div className="boxer">
                             <div className="box-row">
                                 <div className="box1"><span id="zvezda">*</span>Full name</div>
-                                <div className="box2"><input name="name" size="45" type="text" onChange={this.onChangeHandler}/></div>
+                                <div className="box2"><input name="name" required="required" size="45" type="text" onChange={this.onChangeHandler}/></div>
                             </div>
 
                             <div className="box-row">
@@ -189,17 +189,17 @@ class Registartion extends Component {
 
                             <div className="box-row">
                                 <div className="box1"><span id="zvezda">*</span>Country</div>
-                                <div className="box2"><input name="country" size="45" type="text" onChange={this.onChangeHandler}/></div>
+                                <div className="box2"><input name="country" required="required" size="45" type="text" onChange={this.onChangeHandler}/></div>
                             </div>
 
                             <div className="box-row">
                                 <div className="box1"><span id="zvezda">*</span>E-mail address</div>
-                                <div className="box2"><input name="email" size="45" type="text" onChange={this.onChangeHandler}/></div>
+                                <div className="box2"><input name="email" required="required" size="45" type="text" onChange={this.onChangeHandler}/></div>
                             </div>
 
                             <div className="box-row">
                                 <div className="box1"><span id="zvezda">*</span>Phone number</div>
-                                <div className="box2"><input name="tel" size="45" type="text" onChange={this.onChangeHandler}/></div>
+                                <div className="box2"><input name="tel" required="required" size="45" type="text" onChange={this.onChangeHandler}/></div>
                             </div>
 
                             <div className="box-row">
@@ -214,29 +214,29 @@ class Registartion extends Component {
                                     ))}
                                 </select>
                                 <br/>
-                                <span >You can find the Full names list of Funding source <a href="http://www.jinr.ru/wp-content/uploads/JINR_Docs/JINR_Topical_Plan_2018_(rus).pdf" target="_blank" rel="noopener">here</a></span>
+                                <span >You can find the Full names list of Funding source <a href="http://www.jinr.ru/wp-content/uploads/JINR_Docs/JINR_Topical_Plan_2018_(rus).pdf" target="_blank">here</a></span>
                             </p>
                             </div>
                             </div>
 
                             <div className="box-row">
                                 <div className="box1"><span id="zvezda">*</span>Project from the funding source</div>
-                                <div className="box2"><input name="tema_project" size="45" type="text" onChange={this.onChangeHandler}/></div>
+                                <div className="box2"><input name="tema_project" required="required" size="45" type="text" onChange={this.onChangeHandler}/></div>
                             </div>
 
                             <div className="box-row">
                                 <div className="box1"><span id="zvezda">*</span>Login (latin)</div>
-                                <div className="box2"><input name="login" size="45" type="text" onChange={this.onChangeHandler}/></div>
+                                <div className="box2"><input required="required" required="required" name="login" size="45" type="text" onChange={this.onChangeHandler}/></div>
                             </div>
 
                             <div className="box-row">
                                 <div className="box1"><span id="zvezda">*</span>Name of the scientific project</div>
-                                <div className="box2"><textarea cols="45" name="name_of_work" rows="2" onChange={this.onChangeHandler}></textarea></div>
+                                <div className="box2"><textarea required="required"  cols="45" name="name_of_work" rows="2" onChange={this.onChangeHandler}></textarea></div>
                             </div>
 
                             <div className="box-row">
                                 <div className="box1"><span id="zvezda">*</span>Summary of the scientific project</div>
-                                <div className="box2"><textarea cols="45" name="about_work" rows="10" onChange={this.onChangeHandler}></textarea></div>
+                                <div className="box2"><textarea required="required" cols="45" name="about_work" rows="10" onChange={this.onChangeHandler}></textarea></div>
                             </div>
                             <p>
                                 <input type="submit" value="Send" className="reg-button"></input>
@@ -285,7 +285,7 @@ class Registartion extends Component {
             })
         }).then(res => {
             //localStorage.setItem('currentUser', JSON.stringify(res));
-            if (res.fieldCount==0){
+            if (res.fieldCount===0){
             this.setState({
               isAdd: true
             })

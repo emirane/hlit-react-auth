@@ -156,7 +156,7 @@ class DetailRowView2 extends Component {
     }
 
     render() {
-        console.log(this.state.domain);
+        //console.log(this.state.domain);
         const cellEdit = {
             mode: 'click', // click cell to edit
             blurToSave: true,
@@ -180,11 +180,13 @@ class DetailRowView2 extends Component {
                 this.props.afterUpdate(JSON.stringify(row))
             }
           };
+
+
           const _labs = this.state.labs;
           const lab_name = [];
-          for (var i=0; i<_labs.length; i++) {
-              lab_name[i] =_labs[i].lab_name;
-          }
+        for (var i=0; i<_labs.length; i++) {
+             lab_name[i] =_labs[i].lab_name;
+         }
 
           const _thems = this.state.thems;
           const thema_name = [];
@@ -196,6 +198,7 @@ class DetailRowView2 extends Component {
             <div className="detailview-row" > 
                 <div className="container-detail">
                     <div className="button-block">
+                       
                         <button type="button" className="btn btn-primary" >EMAIL PM</button>
                         <button type="button" className="btn btn-primary" >Создать в IPA</button>
                         <button type="button" className="btn btn-primary" onClick={this.jsPdfGenerator}>Download PDF</button>
@@ -205,17 +208,23 @@ class DetailRowView2 extends Component {
                     </div>
                     <BootstrapTable data={this.state.products} cellEdit={ cellEdit } bordered={ false } >
                         <TableHeaderColumn isKey dataField='id'>ID</TableHeaderColumn>
-                        <TableHeaderColumn dataField='name'>Name</TableHeaderColumn>
-                        <TableHeaderColumn dataField='login' dataSort={ true } >Login</TableHeaderColumn>
+                        <TableHeaderColumn dataField='name'>Имя</TableHeaderColumn>
+                        <TableHeaderColumn dataField='name_lat'>Имя(латиницей)</TableHeaderColumn>
+                        <TableHeaderColumn dataField='login' dataSort={ true } >Логин</TableHeaderColumn>
                         <TableHeaderColumn dataField='email'>E-mail</TableHeaderColumn>
-                        <TableHeaderColumn dataField='tel'>Telephone</TableHeaderColumn>
-                        <TableHeaderColumn dataField='organization' editable={ { type: 'select', options: { values: lab_name }}}>Organization</TableHeaderColumn>
-                        <TableHeaderColumn dataField='name_of_work'>Name of work</TableHeaderColumn>
-                        <TableHeaderColumn dataField='about_work' editable={ { type: 'textarea' }}>About work</TableHeaderColumn>          
-                        <TableHeaderColumn dataField='tema' editable={ { type: 'select', options: { values: thema_name }}}>Thema</TableHeaderColumn>
-                        <TableHeaderColumn dataField='tema_project'>Thema project</TableHeaderColumn>
-                        <TableHeaderColumn dataField='resurs'>Resurs</TableHeaderColumn>
-                        <TableHeaderColumn dataField='country'>Country</TableHeaderColumn>
+                        <TableHeaderColumn dataField='tel'>Телефон</TableHeaderColumn>
+                        <TableHeaderColumn dataField='organization' editable={ { type: 'select', options: { values: lab_name }}}>Лаборатория</TableHeaderColumn>
+                        <TableHeaderColumn dataField='country'>Страна</TableHeaderColumn>
+                    </BootstrapTable>
+                    <br/>
+                    <BootstrapTable data={this.state.products} cellEdit={ cellEdit } bordered={ false } >
+                        <TableHeaderColumn isKey dataField='id'>ID</TableHeaderColumn>
+                        <TableHeaderColumn dataField='name_of_work'>Название научной работы</TableHeaderColumn>                       
+                        <TableHeaderColumn dataField='about_work' editable={ { type: 'textarea' }}>Описание научной работы</TableHeaderColumn>          
+                        <TableHeaderColumn dataField='tema' editable={ { type: 'select', options: { values: thema_name }}}>Тема</TableHeaderColumn>
+                        <TableHeaderColumn dataField='tema_project'>Проект из темы</TableHeaderColumn>
+                        <TableHeaderColumn dataField='po'>Программное обеспечение</TableHeaderColumn>
+                        
                     </BootstrapTable>
                 </div>
             </div>

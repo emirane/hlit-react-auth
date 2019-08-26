@@ -9,7 +9,9 @@ class Login extends Component {
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.Auth = new AuthService();
     }
-
+    state = {
+        errorLogin : false,
+    }
     componentWillMount(){
         if(this.Auth.loggedIn())
             this.props.history.replace('/');
@@ -17,6 +19,7 @@ class Login extends Component {
 
     render() {
         return (
+          
             <div className="center">
                 <div className="card">
                     <h1>Login</h1>
@@ -64,7 +67,7 @@ class Login extends Component {
                this.props.history.replace('/');
             })
             .catch(err =>{
-                alert(err);
+                alert("Проверьте логин или пароль!")
             })
     }
 }

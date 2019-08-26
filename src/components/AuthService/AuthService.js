@@ -1,15 +1,18 @@
+import React, { Component } from 'react';
 import decode from 'jwt-decode';
+import Alert from 'react-bootstrap/Alert'
 
-export default class AuthService {
+class AuthService extends Component{
     // Initializing important variables
-    constructor(domain) {
-        this.domain = domain || `http://home-hlit.jinr.ru:8443`; // API server domain
+    constructor() {
+        super()
+        this.domain = `http://home-hlit.jinr.ru:8443`; // API server domain
         this.fetch = this.fetch.bind(this) // React binding stuff
         this.login = this.login.bind(this)
         this.getProfile = this.getProfile.bind(this)
     }
 
-    login(username, password) {
+    login = (username, password) => {
         // Get a token from api server using the fetch api
         return this.fetch(`${this.domain}/login`, {
             method: 'POST',
@@ -18,10 +21,15 @@ export default class AuthService {
                 password
             })
         }).then(res => {
-            //console.log(res);
-            this.setToken(res.id_token) // Setting the token in localStorage
-            this.setUser(res.profile.displayName) 
-            return Promise.resolve(res);
+            if(res.lde_message!=="Invalid Credentials") {
+                //console.log(res);
+                this.setToken(res.id_token); // Setting the token in localStorage
+                this.setUser(res.profile.displayName);
+                return Promise.resolve(res);
+            }
+            else {
+                this.setUser(res.profile.displayName);
+            }   
         })
     }
 
@@ -103,4 +111,16 @@ export default class AuthService {
             throw error
         }
     }
+    
+    render() {
+        return (
+            <div> 
+                <Alert variant="danger">
+                    Неправильный логин или пароль!  
+                </Alert>
+            </div>
+        )
+    }
 }
+
+export default AuthService 
